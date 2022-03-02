@@ -26,7 +26,7 @@ export default {
 
   //發起異步請求，獲取數據
   created() {
-    const that = this;
+    const that = this; //為了要讓created()可以找到全域的this，故這樣宣告
 
     //透過axios發起get請求
     this.$axios

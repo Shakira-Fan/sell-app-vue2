@@ -29,7 +29,7 @@ export default {
     itemClasses() {
       let result = [];
       //4.7=>4.5 3.9=>3.5 4.1=>4.0
-      //對分數進行處理，向下取0.5的倍數
+      //對分數進行處理，向下取0.5的倍數，Math.floor() 函式會回傳小於等於所給數字的最大整數。
       let score = Math.floor(this.score * 2) / 2;
       //小數，控制半星
       let hasDecimal = score % 1 !== 0;
@@ -52,6 +52,22 @@ export default {
 
       return result;
     },
+    //另一種寫法
+    // itemClasses() {
+    //   const length = Math.floor(this.score);取得此數，整數最大值
+    //   const result = new Array(length).fill(CLS_ON);new 一個array填滿length的長度，再將全星填滿
+    //   //對分數進行處理 向下取0.5的倍數
+    //   const score = Math.floor(this.score * 2) / 2;
+    //   //若是分數除一不為零，則放半星
+    //   if (score % 1 !== 0) {
+    //     result.push(CLS_HALF);
+    //   }
+    //若是塞滿全星的長度小於固定LENGTH,則回傳一個result.concat(array+array)的方式，將一個新的塞滿灰色星星的array加到result舊的array上，成為一個完整星星的array
+    //   if (result.length < LENGTH) {
+    //     return result.concat(new Array(LENGTH - result.length).fill(CLS_OFF));
+    //   }
+    //   return result;
+    // },
   },
 };
 </script>
